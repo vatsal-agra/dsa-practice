@@ -6,11 +6,20 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+        from collections import Counter
+
+        freq = Counter(nums2)
         count = 0
-        pivot = min(nums2)*k
-        for i in range(len(nums1)):
-            if nums1[i] >= pivot:
-                for j in range(len(nums2)):
-                    if nums1[i] % (nums2[j]*k) == 0:
-                        count += 1
+
+        for x in nums1:
+            if x % k != 0:
+                continue
+            target = x // k
+            i=1
+            while i*i <= target:
+                if target % i == 0:
+                    count += freq.get(i,0)
+                    if i != target // i:
+                        count += freq.get(target // i, 0)
+                i += 1
         return count
