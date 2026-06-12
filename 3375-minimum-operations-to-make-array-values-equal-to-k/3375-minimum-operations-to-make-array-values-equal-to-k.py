@@ -9,11 +9,8 @@ class Solution(object):
             return -1
 
         else:
-            check = len(nums)-1
-            count = 0
-            nums.sort()
-            for i in range(check):
-                if nums[check - (i+1)] < nums[check-i]:
-                    count = count + 1
-
-            return count if k==min(nums) else count+1
+            check = []
+            for i in nums:
+                if i not in check:
+                    check.append(i)
+            return len(check)-1 if min(nums) == k else len(check) 
