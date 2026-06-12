@@ -6,7 +6,7 @@ class Solution(object):
         """
         summ = 0
         highest = max(nums)
-        for i in nums:
-            if i != highest:
-                summ = summ + highest-i
+        nums.sort()
+        for i in range(len(nums)-1):
+            summ = summ + highest-nums[i]
         return summ
