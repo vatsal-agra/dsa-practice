@@ -5,10 +5,10 @@ class Solution(object):
         :rtype: float
         """
         averages = []
-        for i in range(len(nums)/2):
-            averages.append((float(max(nums)+min(nums))/2))
-            nums.remove(max(nums))
-            nums.remove(min(nums))
-
+        nums.sort()
+        n = len(nums)
+        for i in range(n/2):
+            averages.append(((nums[i]+nums[n-i-1])/2.0))
+           
 
         return min(averages)
