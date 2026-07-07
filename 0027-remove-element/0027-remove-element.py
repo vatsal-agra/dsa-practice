@@ -7,7 +7,6 @@ class Solution(object):
         """
         k=0
         for i in range(len(nums)):
-            print(nums)
             if nums[i] != val:
                 k=k+1
             else:
