@@ -8,7 +8,7 @@ class Solution(object):
         count = 0
         num = len(mat[0])
         check = []
-        shift = k%num if k>=num else k
+        shift = k%num
         if shift == 0:
             return True
         for i in mat:
