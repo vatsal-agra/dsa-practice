@@ -1,20 +1,14 @@
 class Solution(object):
     def findRestaurant(self, list1, list2):
-        """
-        :type list1: List[str]
-        :type list2: List[str]
-        :rtype: List[str]
-        """
-        final = []
+        idx2 = {s: j for j, s in enumerate(list2)}   # string → its index in list2, built once
         least = float('inf')
-        for i in list1:
-            if i in list2:
-                a=list1.index(i)
-                b=list2.index(i)
-                if abs(a+b)<least:
-                    final[:] = []
-                    final.append(i)
-                    least = abs(a+b)
-                elif abs(a+b)==least:
-                    final.append(i)
+        final = []
+        for a, s in enumerate(list1):
+            if s in idx2:                 # O(1) dict lookup, not a scan
+                total = a + idx2[s]
+                if total < least:
+                    least = total
+                    final = [s]
+                elif total == least:
+                    final.append(s)
         return final
