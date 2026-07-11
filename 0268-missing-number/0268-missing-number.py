@@ -4,5 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        n = len(nums)
-        return n * (n + 1) // 2 - sum(nums)
+        res = len(nums)
+        for i, num in enumerate(nums):
+            res ^= i ^ num
+        return res
