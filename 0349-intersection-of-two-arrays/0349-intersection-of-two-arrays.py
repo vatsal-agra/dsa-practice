@@ -7,6 +7,4 @@ class Solution(object):
         """
         l1 = set(nums1)
         l2 = set(nums2)
-        ans = [i for i in l1 & l2]
-
-        return ans
+        return list(l1 & l2)
