@@ -4,8 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        dist = len(set(nums))
+        se = set(nums)
+        dist = len(se)
         for i in range(dist+1):
-            if i not in nums:
+            if i not in se:
                 return i
         
