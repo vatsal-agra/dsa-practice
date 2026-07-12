@@ -5,19 +5,13 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
-        ans = []
-        
+        ans=[]
         for i in nums1:
-            count = 0
-            hi = True
-            check = nums2.index(i)
-            while hi:
-                count += 1
-                if check+count < len(nums2):
-                    if nums2[check+count] > i:
-                        ans.append(nums2[check+count])
-                        hi = False
-                else:
+            j = nums2.index(i)
+            for x in nums2[j+1:]:
+                if x > i:
+                    ans.append(x)
+                    break
+            else:                 
                     ans.append(-1)
-                    hi = False
         return ans
