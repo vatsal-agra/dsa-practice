@@ -6,7 +6,7 @@ class Solution(object):
         """
         if n == 1:
             return True
-        check = []
+        check = {}
         seen = False
 
         while not seen:
@@ -22,5 +22,5 @@ class Solution(object):
             if sum in check:
                 seen = True
             else:
-                check.append(sum)
+                check[sum] = 1
         return False
