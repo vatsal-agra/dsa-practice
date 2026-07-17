@@ -1,15 +1,13 @@
 class Solution:
     def flipAndInvertImage(self, image: List[List[int]]) -> List[List[int]]:
-        for i in image:
-            for j in range(len(i)):
-                if i[j] == 0:
-                    i[j] = 1
-                else:
-                    i[j] = 0
-            a=0
-            b=len(i)-1
-            for k in range(len(i)//2):
-                i[a],i[b] = i[b],i[a]
-                a+=1
-                b-=1
+        for row in image:
+            left = 0
+            right = len(row) - 1
+
+            while left <= right:
+                row[left], row[right] = row[right] ^ 1, row[left] ^ 1
+
+                left += 1
+                right -= 1
+
         return image
