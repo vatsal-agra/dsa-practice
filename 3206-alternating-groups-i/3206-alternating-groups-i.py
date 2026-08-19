@@ -11,8 +11,8 @@ class Solution:
             else:
                 check = colors[a:b]
             met = False
-            for i in range(2):
-                if check[i] == check[i+1]:
+            for j in range(2):
+                if check[j] == check[j+1]:
                     met = True
             if met == False:
                 count += 1
