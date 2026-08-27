@@ -14,6 +14,5 @@ class Solution:
             else:
                 a = int(stack.pop())
                 b = int(stack.pop())
-                result = ops[i](b,a)
-                stack.append(result)
+                stack.append(ops[i](b,a))
         return int(stack[0])
