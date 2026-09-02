@@ -8,10 +8,10 @@ class Solution:
     def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
         curr = head
         while curr.next:
-            a = curr.val
-            b = curr.next.val
+         #   a = curr.val
+         #   b = curr.next.val
             after = curr.next
-            val = ListNode(math.gcd(a,b))
+            val = ListNode(math.gcd(curr.val,curr.next.val))
             curr.next = val
             val.next = after
             curr = after
